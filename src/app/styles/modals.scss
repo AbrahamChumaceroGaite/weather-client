@@ -1,0 +1,28 @@
+.p-dialog-header {
+    background-color: rgba(14, 113, 116, 0.89) !important;
+    color: white;
+}
+
+.p-dialog-title{
+    color: white;
+}
+
+.p-dialog-content{
+    background-color: rgba(255, 255, 255, 0.411);
+}
+
+.p-dialog-header-close-icon,
+.p-dialog-header-maximize-icon {
+    color: white;
+}
+
+.demography-modal{
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    
+.demography-modal{
+    width: 100% !important;
+}
+}

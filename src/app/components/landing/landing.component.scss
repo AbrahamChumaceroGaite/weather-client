@@ -1,0 +1,10 @@
+.logo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  .title {
+    color: #ffffff
+  }
+}

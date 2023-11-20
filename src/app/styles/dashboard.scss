@@ -1,0 +1,192 @@
+.dashboard-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.indice {
+    width: 100%;
+    background-color: transparent;
+
+
+    .temp-report {
+        position: relative;
+        overflow: hidden;
+        color: white;
+    }
+
+    .temp-report::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(8px);
+        /* Ajusta el valor de blur según tus preferencias */
+        z-index: -1;
+    }
+
+    .carousel-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.781);
+        margin-right: 15px;
+
+        .carousel-values {
+            margin: 10px;
+            font-size: 25px;
+            color: rgb(59, 80, 92);
+        }
+    }
+
+    .surface-border {
+        transition: box-shadow 0.3s;
+        /* Agrega una transición para el cambio de sombra */
+
+        &:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            /* Cambia la sombra en hover */
+        }
+    }
+
+    transition: box-shadow 0.3s;
+    /* Agrega una transición para el cambio de sombra */
+
+}
+
+.graph-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+
+    .map {
+        width: 100%;
+        height: 300px;
+        margin-top: 10px;
+    }
+
+    .dash-graph {
+        width: 100%;
+    }
+}
+
+.dashboard-info {
+    background-color: rgba(255, 255, 255, 0.411);
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .carousel-cards {
+        width: 100%;
+        background-color: transparent;
+
+        .temp-report {
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .temp-report::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: blur(8px);
+            /* Ajusta el valor de blur según tus preferencias */
+            z-index: -1;
+        }
+
+        .carousel-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgba(250, 250, 250, 0.74) !important;
+            margin-right: 15px;
+
+            .carousel-values {
+                margin: 10px;
+                font-size: 20px;
+                color: rgb(66, 66, 66);
+            }
+
+            transition: box-shadow 0.3s;
+            transition: background-color 0.3s;
+
+            &:hover {
+                color: white;
+                font-weight: bold;
+                background-color: rgba(255, 255, 255, 0.788) !important;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .graph-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+
+        .map-card{
+            width: 25%;
+        }
+
+        .dashboard-header {
+            color: white;
+            background-color: rgba(198, 159, 75, 0.87) !important;
+
+            .map {
+                width: 80%;
+                height: 300px;
+                margin-top: 10px;
+            }
+            
+        }
+
+        .dashboard-graph {
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-info {
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .graph-content {
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            .map-card{
+                width: 100%;
+            }
+
+            .dashboard-header {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .dashboard-graph {
+                width: 100%;
+            }
+        }
+    }
+    
+}

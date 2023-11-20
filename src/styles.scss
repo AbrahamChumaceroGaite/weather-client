@@ -1,0 +1,227 @@
+@use "themes" as *;
+@use "@nebular/theme/styles/globals" as *;
+@use '../src/app/styles/dashboard.scss';
+@use '../src/app/styles/login.scss';
+@use '../src/app/styles/forms.scss';
+@use '../src/app/styles/landing-page.css';
+@use '../src/app/styles/layouts.scss';
+@use '../src/app/styles/modals.scss';
+@use '../src/assets/vendor/aos/aos.css';
+@use '../src/assets/vendor/bootstrap/css/bootstrap.min.css';
+@use '../src/assets/vendor/bootstrap-icons/bootstrap-icons.css';
+@use '../src/assets/vendor/boxicons/css/boxicons.min.css';
+@use '../src/assets/vendor/swiper/swiper-bundle.min.css';
+@import "node_modules/leaflet/dist/leaflet.css";
+@import "~leaflet/dist/leaflet.css";
+@import '~mapbox-gl/dist/mapbox-gl.css';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+@include nb-install() {
+  @include nb-theme-global();
+}
+
+#myUser .user-name {
+  color: white;
+}
+
+#myUser .user-title {
+  color: white;
+}
+
+nb-actions .actions-icon-color {
+  color: white;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+
+.nav-header nb-icon {
+  color: white;
+  /* Cambiar el color del texto del nombre de usuario a blanco */
+}
+
+#myUser .user-name {
+  color: white;
+}
+
+
+.invalid-feedback {
+  color: #f44336;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.btn-spacer {
+  display: flex;
+  gap: 10px;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .caption-title {
+    font-size: small;
+    margin-right: 1rem;
+  }
+
+  .search-input {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      margin-left: 1rem;
+    }
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+}
+
+.table-columns {
+  width: auto;
+}
+
+.table-columns-device {
+  width: 100%;
+  min-width: 200px;
+}
+
+.tabs-background {
+  background-color: white;
+}
+
+.dashboard-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.dashboard-container nb-card,
+.dashboard-container p-splitter {
+  max-width: 100%;
+}
+
+.dashboard-item {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 95px;
+}
+
+.report-container {
+  .report-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    vertical-align: bottom;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  
+
+  .carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .p-carousel {
+      width: 100%;
+      height: 100%;
+
+      .p-carousel-content {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .table-header {
+    flex-direction: column;
+
+    .search-input {
+      margin-bottom: 1rem;
+    }
+
+    .button-group {
+      justify-content: flex-end;
+
+      button {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .form-columns {
+    grid-template-columns: 1fr;
+    align-content: center;
+    vertical-align: middle;
+  }
+
+  /* Estilos adicionales para p-splitter */
+  .p-splitter {
+    &.p-splitter-horizontal {
+      flex-direction: column;
+    }
+
+    &.p-splitter-vertical {
+      flex-direction: row;
+    }
+
+    .p-splitter-gutter {
+      flex: 0 0 16px;
+    }
+
+    .p-splitter-panel {
+      flex: 1 1 auto;
+    }
+  }
+
+  /* Estilos adicionales para el carrusel */
+  .p-carousel {
+    &.p-carousel-horizontal {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none; /* IE 10+ */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .p-carousel-content {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      scroll-snap-type: x mandatory;
+    }
+
+    .p-carousel-item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+  }
+}

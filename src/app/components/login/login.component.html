@@ -1,0 +1,31 @@
+<br>
+<form id="loginform" #loginform (ngSubmit)="onSubmit()" [formGroup]="form" autocomplete="off">
+  <div class="form-column">
+    <ng-container *ngIf="error">
+      <span style="font-weight: bold; color: red;">Error al iniciar sesión</span>
+    </ng-container>
+   
+    <div class="form-content">
+      <label htmlFor="username">
+        <i class="pi pi-user"></i>CI o DNI</label>
+      <input pInputText type="number" formControlName="ci" placeholder="Ej: 123456" required />
+      <small *ngIf="form?.get('ci')?.invalid && (form?.get('ci')?.dirty || form?.get('ci')?.touched)"
+        class="text-danger">
+        <ng-container *ngIf="form?.get('ci')?.hasError('required')">El CI o DNI es requerido</ng-container>
+      </small>
+    </div>
+
+    <div class="form-content">
+      <label htmlFor="username">
+        <i class="pi pi-lock"></i>Contraseña</label>
+      <input pInputText type="password" name="password" placeholder="********" formControlName="pass" />
+      <small *ngIf="form?.get('pass')?.invalid && (form?.get('pass')?.dirty || form?.get('pass')?.touched)"
+        class="text-danger">
+        <ng-container *ngIf="form?.get('pass')?.hasError('required')">La contraseña es requerida</ng-container>
+      </small>
+    </div>
+
+    <p-button label="Ingresar" [loading]="loading"  [disabled]="form.invalid" icon="pi pi-unlock" styleClass="w-10rem mx-auto" type="submit" rounded="true" severity="success" ></p-button>
+
+  </div>
+</form>

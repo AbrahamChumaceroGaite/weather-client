@@ -1,0 +1,60 @@
+.p-dialog-header {
+    background-color: rgba(14, 92, 116, 0.445) !important;
+    color: white;
+}
+
+.p-dialog-title{
+    color: white;
+}
+
+.p-dialog-content{
+    background-color: rgba(255, 255, 255, 0.411);
+}
+
+.p-dialog-header-close-icon,
+.p-dialog-header-maximize-icon {
+    color: white;
+}
+
+#loginform {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .form-column {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            i {
+                margin-right: 2px;
+            }
+
+            background-color: white;
+        }
+    }
+
+    .p-button {
+        width: 10rem;
+        margin: 0 auto;
+    }
+}
+
+.login-modal{
+    width: 40% !important;
+}
+
+@media screen and (max-width: 768px) {
+    
+.login-modal{
+    width: 100% !important;
+}
+}

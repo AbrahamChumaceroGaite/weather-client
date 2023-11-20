@@ -1,0 +1,62 @@
+<nb-layout>
+  <nb-layout-header fixed class="nav-header">
+    <button nbButton class="toggle-sidebar" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
+      <nb-icon icon="menu" style="color: black;"></nb-icon>
+    </button>
+    <div class="user-container">
+      <div class="menu-title">
+        <h1>
+          <i class="{{ authService.getIcon() }}"></i>
+          {{ authService.getTitle() }}
+        </h1>
+      </div>
+      <div class="space">
+      </div>
+      <nb-actions size="medium">
+        <nb-action id="myNot" icon="bell" badgeText="{{totalnotificactions}}" badgeStatus="danger"
+          [nbPopover]="templateRef" nbPopoverPlacement="bottom">
+          <ng-template #templateRef>
+            <p-virtualScroller [value]="notifications" scrollHeight="350px" [style]="{'width': '420px'}"
+              [itemSize]="100">
+              <ng-template pTemplate="header"> Notificaciones </ng-template>
+              <ng-template let-item pTemplate="item">
+                <nb-card class="notification-content">
+                  <nb-card-body (click)="readNotification(item.id)">
+                    <div class="notification-message-content">
+                      <div class="notification-message">
+                        <p>{{item.message}}</p>
+                        <div class="down-line">
+                          <small>{{item.createdAt | date : "dd/MM/yy HH:mm"}}</small>
+                          <nb-icon icon="info"></nb-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+              </ng-template>
+            </p-virtualScroller>
+          </ng-template>
+        </nb-action>
+        <nb-action>
+          <nb-user class="user-info" [nbContextMenu]="navMenu" nbContextMenuTag="my-context-menu" [name]="username"
+            color="#cccccc" [picture]="''" id="myUser" [title]="rol">
+          </nb-user>
+        </nb-action>
+      </nb-actions>
+    </div>
+  </nb-layout-header>
+
+  <nb-sidebar tag="sidebar" [responsive]="true" [compactedBreakpoints]="['xs', 'is']">
+    <nb-menu [items]="navItems" class="menu-sidebar"></nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <div class="footer">
+      <p>Versión 0.3.0</p>
+    </div>
+  </nb-layout-footer>
+</nb-layout>

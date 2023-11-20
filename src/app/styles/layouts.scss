@@ -1,0 +1,111 @@
+.content-box {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+
+    nb-card-header {
+        background-color: rgba(5, 49, 66, 0.877);
+        color: white;
+    }
+
+    nb-card-body {
+        background: url("../../assets/thumbails/bo.png") center center no-repeat;
+        background-size: cover;
+
+        .p-scrollPanel {
+            height: 400px;
+
+            .timeline-container {
+                z-index: 1;
+
+                .department {
+                    cursor: pointer;
+
+                    &:hover {
+                        font-weight: bold;
+                        color: #1E90FF;
+                    }
+                }
+            }
+
+        }
+        p-virtualScroller {
+            height: 400px;
+        
+            .content{
+                cursor: pointer;
+        
+                &:hover {
+                    color: #1E90FF;
+                }
+            }          
+        
+        }
+    }
+    nb-card-body-2 {
+    
+        p-virtualScroller {
+            height: 400px;
+            width: auto;
+            .content{
+                cursor: pointer;
+        
+                &:hover {
+                    color: #1E90FF;
+                }
+            }          
+        
+        }
+    }
+}
+
+.content-box-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+
+    nb-card-header {
+        background-color: rgba(5, 49, 66, 0.877);
+        color: white;
+    }
+
+    nb-card-body {
+    
+        p-virtualScroller {
+            height: 400px;
+            width: auto;
+            .content{
+                cursor: pointer;
+        
+                &:hover {
+                    font-weight: bold;
+                    color: #1E90FF;
+                }
+            }          
+        
+        }
+    }
+}
+
+.content-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .content-box {
+        flex-direction: column;
+
+    }
+    .content-box-scroll {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+}

@@ -1,0 +1,120 @@
+.create-header {
+
+  .p-dialog-header-close-icon,
+  .p-dialog-header-maximize-icon {
+    color: white;
+  }
+
+  .p-dialog .p-dialog-header {
+    background-color: rgba(51, 131, 178, 0.774) !important;
+    color: white;
+  }
+}
+
+.edit-header {
+
+  .p-dialog-header-close-icon,
+  .p-dialog-header-maximize-icon {
+    color: white;
+  }
+
+  .p-dialog .p-dialog-header {
+    background-color: rgb(75, 198, 124, 0.774) !important;
+    color: white;
+  }
+}
+
+.dashboard-header {
+
+  .p-dialog-header-close-icon,
+  .p-dialog-header-maximize-icon {
+    color: white;
+  }
+
+  .p-dialog .p-dialog-header {
+    background-color: rgba(198, 159, 75, 0.87) !important;
+    color: white;
+  }
+}
+
+.form-device {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-content: flex-start;
+
+}
+
+.attention {
+  background-color: beige;
+  text-transform: capitalize;
+  display: flex;
+  font-weight: bold;
+  margin: 5px;
+
+  .attention-icon {
+    font-size: 60px;
+    margin: 5px;
+  }
+}
+
+.form-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+
+  .columns {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-content: center;
+    gap: 20px;
+
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      i {
+        margin-right: 5px;
+      }
+
+      background-color: white;
+    }
+  }
+
+}
+
+.form-extra {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  vertical-align: middle;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.form-hint {
+  text-align: end;
+  font-size: small;
+}
+
+.form-alert {
+  color: red;
+  text-align: start;
+  font-size: small;
+  justify-content: left;
+}
+
+.view-menubar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
