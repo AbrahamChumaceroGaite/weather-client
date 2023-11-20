@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.socketService.on('connection', (res: any) => {
+/*     this.socketService.on('connection', (res: any) => {
 
     });
     this.NotificationService.getNotifications()
@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
     setTimeout((a: any) => {
       this.setMapData();
       window.dispatchEvent(new Event('resize'));
-    }, 1000);
+    }, 1000); */
   }
 
   ngAfterViewInit() {
@@ -121,93 +121,5 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getReportUser() {
-    this.loading = true;
-    this.NotificationService.getReport().subscribe((data: any) => {
-      this.notifications = data
-      this.loading = false;
-    });
-    this.virtualnotifications = Array.from({ length: 10000 });
-  }
-
-  getTableData(event: LazyLoadEvent) {
-    this.loading = true;
-    const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-dd HH:mm:ss');
-    const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-dd HH:mm:ss');
-    setTimeout(() => {
-      this.SharedDataService.getDataTable(event, formattedStartDate, formattedEndDate).subscribe((data) => {
-        this.items = data.items;
-        this.totalRecords = data.totalRecords;
-        this.loading = false;
-      }, (error) => {
-        this.loading = false;
-      });
-    }, 2000);
-  }
-
-  filterByName() {
-    if (this.filterValue) {
-      this.dt.filterGlobal(this.filterValue, 'contains');
-    } else {
-      this.dt.filterGlobal(null, 'contains'); // Restablecer el filtro global
-    }
-  }
-
-  onDateRangeChange() {
-    if (this.startDate && this.endDate) {
-      const startDate = new Date(this.startDate);
-      const endDate = new Date(this.endDate);
-      this.refreshTable(startDate, endDate)
-    }
-  }
-
-  loadDefaultData() {
-    const startDate = this.calculateLastWeekStartDate();
-    const endDate = new Date();
-    this.refreshTable(startDate, endDate)
-  }
-
-  calculateLastWeekStartDate() {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    const tomo =  tomorrow.setDate(tomorrow.getDate() + 3); // Suma un día
-    const lastWeek = new Date(tomo);
-    lastWeek.setDate(lastWeek.getDate() - 30); // Resta una semana
-    return lastWeek;
-  }
-
-  setMapData() {
-    const markerIcon = Leaflet.icon({
-      iconUrl: '/assets/icons/marker.png',
-      iconSize: [38, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      tooltipAnchor: [16, -28],
-      shadowSize: [41, 41],
-      shadowAnchor: [12, 41]
-    });
-    const filteredData = this.coordinates;
-    for (let i = 0; i < filteredData.length; i++) {
-      const data = filteredData[i];
-      const marker = Leaflet.marker([data.lat, data.lon], { draggable: true, icon: markerIcon })
-
-      marker.addTo(this.map).bindPopup(`<pre>${JSON.stringify(data.name, null, 2)}</pre>`);
-      this.markers.push(marker);
-    }
-  }
-
-  onMapReady(map: Leaflet.Map) {
-    this.map = map;
-  }
-
-  refreshTable(startDate: Date, endDate: Date) {
-    const lazyLoadEvent: LazyLoadEvent = {
-      first: 0,
-      rows: 10,
-    };
-    this.startDate = startDate.toISOString();
-    this.endDate = endDate.toISOString();
-    this.getTableData(lazyLoadEvent);
-  }
 
 }

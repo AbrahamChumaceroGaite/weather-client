@@ -65,10 +65,8 @@ export class NavComponent implements OnInit {
   }
 
   getMenu() {
-    const userPermissions = this.authService.getUserPermissions();
-    this.username = this.authService.getUsername();
-    this.rol = this.authService.getRol();
-    this.navItems = this.filterMenuItems(userPermissions);
+    this.username = this.authService.getUsername(); 
+
     this.navMenu = OPTION_ITEMS;
     this.nbmenuService.onItemClick().pipe(filter(({ tag }) => tag === 'my-context-menu'),
       map(({ item: { title } }) => title)).subscribe(title => {

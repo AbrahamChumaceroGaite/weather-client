@@ -1,3 +1,28 @@
+$gutter: 5px;
+$columns: 3;
+.map-card-header {
+    background-color: rgba(5, 74, 138, 0.788);
+    color: white;
+}
+
+.menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+ 
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
 .dashboard-content {
     display: flex;
     width: 100%;
@@ -79,114 +104,223 @@
     }
 }
 
-.dashboard-info {
-    background-color: rgba(255, 255, 255, 0.411);
-    display: flex;
-    width: 100%;
-    height: 100%;
+.station-container {
+    display: grid;
+    grid-template-columns: 25% auto 23%;
+    gap: $gutter; 
 
-    .carousel-cards {
-        width: 100%;
-        background-color: transparent;
-
-        .temp-report {
-            position: relative;
-            overflow: hidden;
-            color: white;
-        }
-
-        .temp-report::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            filter: blur(8px);
-            /* Ajusta el valor de blur según tus preferencias */
-            z-index: -1;
-        }
-
-        .carousel-item {
+    .item {
+        width: auto;
+        .station-report {
+            width: 100%;
+            height: 440px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-color: rgba(250, 250, 250, 0.74) !important;
-            margin-right: 15px;
+            position: relative;
 
-            .carousel-values {
-                margin: 10px;
-                font-size: 20px;
-                color: rgb(66, 66, 66);
+            .background-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 0; // Asegura que la imagen esté detrás del contenido y del degradado
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
             }
 
-            transition: box-shadow 0.3s;
-            transition: background-color 0.3s;
+            .content-overlay {
+                position: relative;
+                z-index: 1; // Asegura que el contenido esté encima de la imagen
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgb(5, 73, 138), transparent);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: baseline;
+
+                .title {
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 10px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+                .graph-content-certifieds {
+                    width: 350px;
+                    height: 300px;
+                }
+
+                .subtitle {
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 5px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+            }
 
             &:hover {
-                color: white;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .station-status {
+            width: 100%;
+            display: flex;
+            position: relative;
+            height: 445px;
+
+
+            .text-box {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 50%;
+                padding: 10px;
+                background: linear-gradient(to bottom, rgb(5, 73, 138), transparent);
+                text-align: center;
+                font-size: 16px;
                 font-weight: bold;
-                background-color: rgba(255, 255, 255, 0.788) !important;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                height: 80%;
+
+                .title {
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 5px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+
+                .graph-content-certifieds {
+                    width: 350px;
+                    height: 300px;
+                }
+
+                .subtitle {
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 5px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+                i {
+                    font-size: 70px;
+                    color: white;
+                    margin: 10px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+                .temperature {
+                    font-size: 40px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 10px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                }
+
+                .carousel-content {
+                    justify-content: center;
+                    flex-direction: column;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 7px;
+                  
+                    h1 {
+                      font-size: 25px;
+                      color: white;
+                      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    }
+                  
+                    .icon {
+                      font-size: 40px;
+                      color: white;
+                      margin: 15px;
+                      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    }
+                  
+                    p {
+                      font-weight: bold;
+                      font-size: 30px;
+                      color: white;
+                      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    }
+                  }
             }
-        }
-    }
 
-    .graph-content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: space-between;
+            .map-content {
+                width: 100%;
+                height: 500px;
+                z-index: 0;
 
-        .map-card{
-            width: 25%;
-        }
-
-        .dashboard-header {
-            color: white;
-            background-color: rgba(198, 159, 75, 0.87) !important;
-
-            .map {
-                width: 80%;
-                height: 300px;
-                margin-top: 10px;
             }
-            
+
+            &:hover {
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            }
         }
 
         .dashboard-graph {
-            width: 70%;
+            width: 100%;
+
+            .graph-menu {
+                margin: 10px;
+            }
+        }   
+
+        
+
+        .echart {
+            width: 100%;
+            height: 267px;
         }
+    }
+ @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr; 
+    .item{
+        width: 100%;
+
+        .dashboard-graph {
+            width: 100%;
+
+            .graph-menu {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }  
+    }
+  }
+}
+
+.data-container{
+    display: grid;
+    grid-template-columns: 45% auto;
+    gap: $gutter; 
+
+    .item{
+        width: auto;
+    }
+
+    @media (max-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr; 
     }
 }
 
-@media screen and (max-width: 768px) {
-    .dashboard-info {
-        flex-direction: column;
-        flex-wrap: wrap;
+.suspendido {
+    color: rgb(161, 42, 42);
+    font-weight: bold;
+}
 
-        .graph-content {
-            flex-direction: column;
-            flex-wrap: wrap;
-
-            .map-card{
-                width: 100%;
-            }
-
-            .dashboard-header {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .dashboard-graph {
-                width: 100%;
-            }
-        }
-    }
-    
+.activo {
+    color: rgb(65, 153, 65);
+    font-weight: bold;
 }

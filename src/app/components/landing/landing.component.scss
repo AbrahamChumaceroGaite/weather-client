@@ -13,6 +13,10 @@
   display: none
 }
 
+a{
+  cursor: pointer;
+}
+
 @media (max-width: 991px) {
  
   .login-toggle {

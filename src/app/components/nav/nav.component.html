@@ -1,8 +1,8 @@
 <nb-layout>
   <nb-layout-header fixed class="nav-header">
-    <button nbButton class="toggle-sidebar" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
+   <!--  <button nbButton class="toggle-sidebar" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
       <nb-icon icon="menu" style="color: black;"></nb-icon>
-    </button>
+    </button> -->
     <div class="user-container">
       <div class="menu-title">
         <h1>
@@ -46,9 +46,9 @@
     </div>
   </nb-layout-header>
 
-  <nb-sidebar tag="sidebar" [responsive]="true" [compactedBreakpoints]="['xs', 'is']">
+<!--   <nb-sidebar tag="sidebar" [responsive]="true" [compactedBreakpoints]="['xs', 'is']">
     <nb-menu [items]="navItems" class="menu-sidebar"></nb-menu>
-  </nb-sidebar>
+  </nb-sidebar> -->
 
   <nb-layout-column>
     <router-outlet></router-outlet>

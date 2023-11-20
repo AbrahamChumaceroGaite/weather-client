@@ -8,15 +8,18 @@ import { NebularLibraryModule } from 'src/app/modules/nebular-library.module';
 import { PrimengLibraryModule } from 'src/app/modules/primeng-library.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ClientReportComponent } from './client-report/client-report.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ClientReportComponent
   ],
   imports: [
     NgApexchartsModule,
     CommonModule,    
+    CarouselModule,
     FormsModule,
     LeafletModule,
     ReactiveFormsModule,

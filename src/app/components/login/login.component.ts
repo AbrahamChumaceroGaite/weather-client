@@ -17,7 +17,6 @@ export class LoginComponent {
   loading: boolean = false;
   constructor(
     private authService: AuthService,
-    private router: Router,
     private MessagesService: MessagesService,
     private fb: FormBuilder,
   ) { }
@@ -29,7 +28,6 @@ export class LoginComponent {
   loadform() {
     this.form = this.fb.group({
       ci: ['', [Validators.required, Validators.minLength(3)]],
-      pass: ['', Validators.required],
     })
   }
 

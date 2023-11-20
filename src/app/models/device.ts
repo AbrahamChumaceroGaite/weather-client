@@ -1,6 +1,7 @@
 export interface Device {
     Id: number; 
     name: string;
+    location:string;
     device_id: string;
     client: string;
     temp: number;

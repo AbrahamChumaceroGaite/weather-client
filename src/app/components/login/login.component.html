@@ -15,16 +15,6 @@
       </small>
     </div>
 
-    <div class="form-content">
-      <label htmlFor="username">
-        <i class="pi pi-lock"></i>Contraseña</label>
-      <input pInputText type="password" name="password" placeholder="********" formControlName="pass" />
-      <small *ngIf="form?.get('pass')?.invalid && (form?.get('pass')?.dirty || form?.get('pass')?.touched)"
-        class="text-danger">
-        <ng-container *ngIf="form?.get('pass')?.hasError('required')">La contraseña es requerida</ng-container>
-      </small>
-    </div>
-
     <p-button label="Ingresar" [loading]="loading"  [disabled]="form.invalid" icon="pi pi-unlock" styleClass="w-10rem mx-auto" type="submit" rounded="true" severity="success" ></p-button>
 
   </div>

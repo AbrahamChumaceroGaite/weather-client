@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { ShareDataService } from '../services/shared/shared.service';
 
 interface LoginResponse {
   token: string;
@@ -25,14 +26,13 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(body: any): Observable<any> {
-    const url = `${this.baseUrl}/login/`;
+    const url = `${this.baseUrl}/login/client/`;
   
     return this.http.post<LoginResponse>(url, body).pipe(
       tap(res => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('iduser', res.iduser);
         sessionStorage.setItem('name', res.name);
-        sessionStorage.setItem('rol', res.rol);
         this.router.navigate(['/home']);
       })
     );
@@ -41,18 +41,14 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('iduser');
-    sessionStorage.removeItem('name');
-    sessionStorage.removeItem('rol'); // Agrega esta línea para eliminar el nombre de usuario
+    sessionStorage.removeItem('name'); 
     this.router.navigate(['/']);
   }
 
-  getUserPermissions() {
-    const permisosString = sessionStorage.getItem('pageaccess');
-    this.userPermissions = permisosString ? JSON.parse(permisosString) : null;
-    // Verifica si permisosString es null y proporciona un valor predeterminado si es así
-    return permisosString ? JSON.parse(permisosString) : null;
-  }
+  getIdDevice(){
 
+  }
+  
   getIdUser(): any {
     const idUser = sessionStorage.getItem('iduser');
     return idUser !== null ? idUser : '';
@@ -61,11 +57,6 @@ export class AuthService {
   getUsername(): string {
     const username = sessionStorage.getItem('name');
     return username !== null ? username : '';
-  }
-
-  getRol(): string {
-    const rol = sessionStorage.getItem('rol');
-    return rol !== null ? rol : '';
   }
 
   getToken(): string | null {
