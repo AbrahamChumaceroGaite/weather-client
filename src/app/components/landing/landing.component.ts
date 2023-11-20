@@ -57,10 +57,7 @@ export class LandingComponent {
   }
 
   isPWAInstalled(): boolean {
-    return (
-      this.platformLocation instanceof
-      (window as any).angular.ServiceWorkerPlatformLocation
-    );
+    return true;
   }
   
 

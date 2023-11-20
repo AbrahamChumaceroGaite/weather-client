@@ -11,7 +11,9 @@
         <ul><!-- 
           <li><a class="nav-link scrollto" >Instalación</a></li>
           <li><a class="nav-link scrollto" >Caracteristicas</a></li> -->
-          <li><a class="nav-link scrollto"  (click)="showLoginModal()">Iniciar Sesión<i class="bx bx-user-circle" style="font-size: 20px;"></i></a>  </ul>
+          <li><a class="nav-link scrollto" style="z-index: 2;" (click)="showLoginModal()">Iniciar Sesión<i
+                class="bx bx-user-circle" style="font-size: 20px;"></i></a>
+        </ul>
       </nav>
 
     </div>
@@ -28,7 +30,10 @@
             <h1>Monitorea en tiempo real tu estación <span>S.M.I</span></h1>
             <h2>Rapido, ligero y sencillo de instalar </h2>
             <div class="text-center text-lg-start">
-              <p *ngIf="!isPWAInstalled()" class="btn-get-started scrollto" (click)="installPWA()">Instalar PWA</p>
+              <div class="login-toggle">
+                <p class="btn-get-started scrollto" (click)="showLoginModal()">Iniciar Sesión </p>
+              </div>
+              <p class="btn-get-started scrollto" (click)="installPWA()">Instalar PWA</p>
             </div>
           </div>
         </div>
@@ -38,21 +43,22 @@
       </div>
     </div>
 
-    <svg class="home-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+    <svg class="home-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28 " preserveAspectRatio="none">
       <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
       </defs>
       <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"/>
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)" />
       </g>
       <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"/>
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)" />
       </g>
       <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff"/>
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
       </g>
     </svg>
-    
+
 
   </section>
   <!-- End home -->
@@ -64,29 +70,33 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-       
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
+            data-aos="fade-right">
+
           </div>
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+          <div
+            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
+            data-aos="fade-left">
             <h3>Desde donde estes, enterate que ocurre con tus cultivos</h3>
             <p>Con la aplicación PWA podras monitorear el estado de tus estaciones ademas de:.</p>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon"><i class="bx bx-message-alt-check"></i></div>
-              <h4 class="title"><a >Notificaciones SMS</a></h4>
-              <p class="description">Si no cuentas con Internet ese momento para saber que ocurre con tu estación, te enviaremos un SMS con la notificación.</p>
+              <h4 class="title"><a>Notificaciones SMS</a></h4>
+              <p class="description">Si no cuentas con Internet ese momento para saber que ocurre con tu estación, te
+                enviaremos un SMS con la notificación.</p>
             </div>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon"><i class="bx bx-category"></i></div>
-              <h4 class="title"><a >Filtros Dinamicos</a></h4>
+              <h4 class="title"><a>Filtros Dinamicos</a></h4>
               <p class="description">Por sensores, por fecha, obten resultados inmediatos de tus datos recopilados.</p>
             </div>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
               <div class="icon"><i class="bx bx-chart"></i></div>
-              <h4 class="title"><a >Reportes Graficos</a></h4>
+              <h4 class="title"><a>Reportes Graficos</a></h4>
               <p class="description">Facilitar Interpretación de los datos, con graficos dinamicos.</p>
             </div>
 
@@ -94,7 +104,8 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
+    <!-- End About Section -->
 
   </main>
   <!-- End #main -->
@@ -112,4 +123,3 @@
     </div>
   </footer>
 </body>
-
