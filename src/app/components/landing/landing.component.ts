@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SwUpdate } from '@angular/service-worker';
@@ -24,26 +24,39 @@ export class LandingComponent {
   displayLoginModal: boolean = false;
 
   ref: DynamicDialogRef | undefined;
+
+  public promptEvent : any;
+
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onbeforeinstallprompt(e:any) {
+    e.preventDefault();
+    this.promptEvent = e;
+  }
+
   constructor(public dialogService: DialogService, private swUpdate: SwUpdate, private platformLocation: PlatformLocation) { }
 
   ngOnInit(): void {
-
-  }
-
-  installPWA(): void {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
-        if (confirm('¿Desea instalar la aplicación?')) {
+        const refresh = window.confirm('Hay una nueva versión disponible. ¿Desea actualizar la aplicación?');
+        if (refresh) {
           window.location.reload();
         }
       });
     }
   }
 
-  isPWAInstalled(): boolean {
-    return true;
+  public installPWA() {
+    this.promptEvent.prompt();
   }
   
+  public shouldInstall(): boolean {
+    return !this.isRunningStandalone() && this.promptEvent;
+  }
+  
+  public isRunningStandalone(): boolean {
+    return (window.matchMedia('(display-mode: standalone)').matches);
+  }
 
 
   showLoginModal(): void {
