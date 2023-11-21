@@ -40,12 +40,12 @@ export class NotificationService {
         return this.httpClient.get(this.apiUrl + '/main/admin/dashboard/users');
     }
 
-    postUser(data: any) {
+    postClient(data: any) {
         const body: any = {
             body: data,
             id: sessionStorage.getItem('iduser'),
         }
-        return this.httpClient.post(this.apiUrl + '/register/subscription/user', body).pipe(
+        return this.httpClient.post(this.apiUrl + '/register/subscription/client', body).pipe(
             map((response: any) => response.mensaje)
         );
     }

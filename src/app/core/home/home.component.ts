@@ -61,10 +61,9 @@ export class HomeComponent implements OnInit {
       this.swPush.requestSubscription({
         serverPublicKey: environment.VAPID_PUBLIC_KEY, // Debes generar una clave pública y privada para tus notificaciones.
       }).then(sub => {
-        this.NotificationService.postUser(sub).subscribe(data => {
+        this.NotificationService.postClient(sub).subscribe(data => {
 
         });
-        // Enviar la suscripción al servidor backend.
       })
         .catch(error => {
           console.error('Error al solicitar la suscripción a notificaciones push', error);

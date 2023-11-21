@@ -1,6 +1,6 @@
 {
-  "name": "UCB S.M.I",
-  "short_name": "UCB S.M.I",
+  "name": "S.M.I - Client",
+  "short_name": "S.M.I - Client",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

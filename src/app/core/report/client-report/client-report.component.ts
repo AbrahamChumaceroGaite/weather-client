@@ -13,6 +13,7 @@ import { owl_landing_page } from 'src/app/utils/owl-config';
 import { DatePipe } from '@angular/common';
 import { product } from 'src/app/models/product';
 import { category } from 'src/app/models/category';
+import { SocketMasterService } from 'src/app/services/miscellaneous/socket.service';
 
 @Component({
   selector: 'app-client-report',
@@ -79,6 +80,7 @@ export class ClientReportComponent implements OnInit {
     private datePipe: DatePipe,
     private MessageService: MessagesService,
     private ChartService: ChartService,
+    private socketService: SocketMasterService,
     private ShareDataService: ShareDataService,
   ) {
     this.ShareDataService.selectedDevice$.subscribe((value) => {
@@ -87,6 +89,23 @@ export class ClientReportComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.socketService.on('connection', (res: any) => {
+
+    });
+    this.socketService.on('disconnect', () => {
+
+    });
+
+    this.socketService.on('devicedata', (res: any) => {
+      this.getDataLast();
+      this.getData();
+    });
+    setTimeout((a: any) => {
+      this.setMapData();
+      window.dispatchEvent(new Event('resize'));
+    }, 1000);
+
     this.getDeviceList();
 
     setTimeout((a: any) => {
