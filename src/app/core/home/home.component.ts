@@ -73,32 +73,32 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-/*     this.socketService.on('connection', (res: any) => {
-
-    });
-    this.NotificationService.getNotifications()
-    this.socketService.on('disconnect', () => {
-
-    });
-    this.getReportUser()
-    this.loadDefaultData()
-
-    this.socketService.on('notification', (res: any) => {
-      this.getReportUser();
-    });
-    this.socketService.on('devicedata', (res: any) => {
-      this.loadDefaultData();
-    });
-    setTimeout((a: any) => {
-      this.setMapData();
-      window.dispatchEvent(new Event('resize'));
-    }, 1000); */
+    /*     this.socketService.on('connection', (res: any) => {
+    
+        });
+        this.NotificationService.getNotifications()
+        this.socketService.on('disconnect', () => {
+    
+        });
+        this.getReportUser()
+        this.loadDefaultData()
+    
+        this.socketService.on('notification', (res: any) => {
+          this.getReportUser();
+        });
+        this.socketService.on('devicedata', (res: any) => {
+          this.loadDefaultData();
+        });
+        setTimeout((a: any) => {
+          this.setMapData();
+          window.dispatchEvent(new Event('resize'));
+        }, 1000); */
   }
 
   ngAfterViewInit() {
     this.NotificationService.getDashboard().subscribe((data: any) => {
 
-        this.coordinates = data.totalLocations
+      this.coordinates = data.totalLocations
       const dataDeviceGraph = [
         { name: 'Activas', value: data.totalDeviceON },
         { name: 'Inactivas', value: data.totalDeviceOFF },

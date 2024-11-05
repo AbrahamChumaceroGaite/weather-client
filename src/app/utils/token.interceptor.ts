@@ -24,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 403) {     
+      /*   if (error.status === 403) {     
           this.confirmService.DialogloginFailed().then((result) => {
             if (result === 'Confirmed') {
               this.authService.logout();
@@ -32,7 +32,7 @@ export class TokenInterceptor implements HttpInterceptor {
               this.authService.logout();
             }
           });
-        }
+        } */
         return throwError(error);
       })
     );

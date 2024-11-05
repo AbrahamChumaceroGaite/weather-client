@@ -46,12 +46,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.getMenu();
     this.checkViewport();
-    this.getNotifications();
+  /*   this.getNotifications(); */
     window.addEventListener('resize', this.checkViewport);
     // Escuchar eventos de notificación en la sala del usuario
-    this.socketService.on('notification', (res: any) => {
+  /*   this.socketService.on('notification', (res: any) => {
       this.getNotifications();
-    });
+    }); */
   }
 
   getNotifications() {
@@ -96,9 +96,9 @@ export class NavComponent implements OnInit {
   }
 
   readNotification(id: number) {
-    this.NotificationService.readNotification(id).subscribe((data: any) => {
+   /*  this.NotificationService.readNotification(id).subscribe((data: any) => {
       this.getNotifications();
-    })
+    }) */
   }
 
   toggleSidebar(): void {

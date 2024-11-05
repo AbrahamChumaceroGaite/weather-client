@@ -1,0 +1,87 @@
+<div class="station-container">
+    <div class="item">
+        <nb-card class="station-report" [nbSpinner]="loading">
+            <div class="background-image" [ngStyle]="{ 'background-image': getBackground(dataTemp) }"></div>
+            <div class="content-overlay">
+                <h1 class="title">{{dateLocation}}</h1>
+                <h2 class="subtitle">{{ dataDate | date: 'EEEE, d MMM yyy HH:mm' }}</h2>
+                <div #meditor class="graph-content-certifieds"></div>
+            </div>
+        </nb-card>
+        <nb-card>
+            <nb-card-header class="map-card-header">
+                TEMPERATURA PROMEDIO
+            </nb-card-header>
+            <nb-card-body [nbSpinner]="loading">
+                <div #average class="echart"></div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="item">
+        <div class="dashboard-graph">
+            <nb-card>
+                <nb-card-header class="map-card-header">
+                    <div class="menu-items">
+                        <nb-select status="warning" placeholder="Seleccionar" [nbSpinner]="loading"
+                            [(selected)]="selectedDevice" (selectedChange)="filterDevice($event)">
+                            <nb-option *ngFor="let item of dataDeviceClient" [value]="item.id">{{item.name}}</nb-option>
+                        </nb-select>
+
+                        <nb-select status="warning" placeholder="Seleccionar" [nbSpinner]="loading"
+                            [(selected)]="selectedItem" (selectedChange)="filterData($event)">
+                            <nb-option *ngFor="let item of dataDeviceGraph"
+                                [value]="item.value">{{item.label}}</nb-option>
+                        </nb-select>
+                    </div>
+                </nb-card-header>
+                <nb-card-body [nbSpinner]="loading">
+                    <div #historic class="echart"></div>
+                </nb-card-body>
+            </nb-card>
+          
+                <div class="menu-items">               
+                        <label> Fecha inicio </label>
+                        <input nbInput type="datetime-local" [(ngModel)]="startDate" (change)="onDateRangeChange()" />                  
+                        <label> Fecha final </label>
+                        <input nbInput type="datetime-local" [(ngModel)]="endDate" (change)="onDateRangeChange()" />                 
+                </div>        
+            <nb-card>
+                <nb-card-header class="map-card-header">
+                    TEMPERATURAS
+                </nb-card-header>
+                <nb-card-body [nbSpinner]="loading">
+                    <div #temperature class="echart"></div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+    <div class="item">
+        <nb-card class="station-status" [nbSpinner]="loading">
+            <div id="leaflet-map" class="map-content" leaflet [leafletOptions]="options"
+                (leafletMapReady)="onMapReady($event)">
+            </div>
+            <div class="text-box">
+                <h1 class="title">Sensores</h1>
+                <owl-carousel-o [options]="customOptions">
+                    <ng-container *ngFor="let item of dataCarousel">
+                        <ng-template carouselSlide [id]="item.id">
+                            <div class="carousel-content">
+                                <h1 class="title">{{ item.title }}</h1>
+                                <i class="{{item.icon}} icon"></i>
+                                <p class="values">{{ item.values }}</p>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </nb-card>
+        <nb-card>
+            <nb-card-header class="map-card-header">
+                {{charTitle}} PROMEDIO
+            </nb-card-header>
+            <nb-card-body [nbSpinner]="loading">
+                <div #average2 class="echart"></div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

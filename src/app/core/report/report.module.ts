@@ -10,11 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ClientReportComponent } from './client-report/client-report.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ClientReportOpenComponent } from './client-report-open/client-report-open.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ClientReportComponent
+    ClientReportComponent,
+    ClientReportOpenComponent,
   ],
   imports: [
     NgApexchartsModule,

@@ -11,8 +11,8 @@
         <ul><!-- 
           <li><a class="nav-link scrollto" >Instalación</a></li>
           <li><a class="nav-link scrollto" >Caracteristicas</a></li> -->
-          <li><a class="nav-link scrollto" style="z-index: 2;" (click)="showLoginModal()">Iniciar Sesión<i
-                class="bx bx-user-circle" style="font-size: 20px;"></i></a>
+          <!-- <li><a class="nav-link scrollto" style="z-index: 2;" (click)="showLoginModal()">Iniciar Sesión<i
+                class="bx bx-user-circle" style="font-size: 20px;"></i></a> -->
         </ul>
       </nav>
 
@@ -33,7 +33,8 @@
               <div class="login-toggle">
                 <p class="btn-get-started scrollto" (click)="showLoginModal()">Iniciar Sesión </p>
               </div>
-              <p class="btn-get-started scrollto" (click)="installPWA()">Instalar PWA</p>
+           <!--    <p class="btn-get-started scrollto" (click)="installPWA()">Instalar PWA</p> -->
+              <p class="btn-get-started scrollto" style="cursor: pointer" (click)="openData()">Ver Datos</p>
             </div>
           </div>
         </div>
@@ -118,7 +119,7 @@
         reservados
       </div>
       <div class="credits">
-        Desarrollado por <a>Abraham Chumacero Gaite</a>
+        v1.0.11 - Desarrollado por <a>Abraham Chumacero Gaite</a>
       </div>
     </div>
   </footer>

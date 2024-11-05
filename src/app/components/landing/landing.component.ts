@@ -6,6 +6,7 @@ import { LoginComponent } from '../login/login.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { owl_landing_page } from 'src/app/utils/owl-config';
 import { header_info, boxes, services, maps, images, coordinates } from 'src/app/templates/home-data';
+import { Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
 import "leaflet-control-geocoder";
 
@@ -25,15 +26,19 @@ export class LandingComponent {
 
   ref: DynamicDialogRef | undefined;
 
-  public promptEvent : any;
+  public promptEvent: any;
 
   @HostListener('window:beforeinstallprompt', ['$event'])
-  onbeforeinstallprompt(e:any) {
+  onbeforeinstallprompt(e: any) {
     e.preventDefault();
     this.promptEvent = e;
   }
 
-  constructor(public dialogService: DialogService, private swUpdate: SwUpdate, private platformLocation: PlatformLocation) { }
+  constructor(
+    public dialogService: DialogService,
+    private swUpdate: SwUpdate,
+    private platformLocation: PlatformLocation,
+    private router: Router) { }
 
   ngOnInit(): void {
     if (this.swUpdate.isEnabled) {
@@ -49,15 +54,18 @@ export class LandingComponent {
   public installPWA() {
     this.promptEvent.prompt();
   }
-  
+
   public shouldInstall(): boolean {
     return !this.isRunningStandalone() && this.promptEvent;
   }
-  
+
   public isRunningStandalone(): boolean {
     return (window.matchMedia('(display-mode: standalone)').matches);
   }
 
+  openData() {
+    this.router.navigate(['/home']);
+  }
 
   showLoginModal(): void {
     this.ref = this.dialogService.open(LoginComponent, {

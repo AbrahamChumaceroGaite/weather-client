@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'welcome', component: LandingComponent },
   { path: '404', component: DeniedComponent },
   { path: '', loadChildren: () => import('./core/report/report.module').then(m => m.ReportModule) },
+  
 
 ];
 

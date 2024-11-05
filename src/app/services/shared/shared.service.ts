@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject,Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Person } from 'src/app/models/person';
@@ -17,7 +17,7 @@ export class ShareDataService {
   apiClient: string = environment.apiUrl + "/client";
   apiRol: string = environment.apiUrl + "/rol";
   apiDevice: string = environment.apiUrl + "/device";
-  
+
 
   constructor(private httpClient: HttpClient, private AuthService: AuthService) {
   }
@@ -45,15 +45,16 @@ export class ShareDataService {
     };
     return this.httpClient.get<Device[]>(this.apiDevice + '/get/list/data', { params });
   }
-  
+
 
   getIdentityList(): Observable<DeviceID[]> {
     const params: any = {
-      id: this.AuthService.getIdUser()
-    }
-    return this.httpClient.get<DeviceID[]>(this.apiDevice + '/get/identity/ByClient/', {params});
-  }
+        id: this.AuthService.getIdUser()
   
+    }
+    return this.httpClient.get<DeviceID[]>(this.apiDevice + '/get/identity');
+  }
+
 
 
 }
