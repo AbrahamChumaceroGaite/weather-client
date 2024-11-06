@@ -3,6 +3,18 @@ nb-user {
   color: white;
 }
 
+.logo-header {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+
+  .title {
+    color: #ffffff
+  }
+}
+
+
 nb-layout-column{
   overflow-x:  auto;
   overflow-y: auto;
